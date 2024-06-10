@@ -27,8 +27,6 @@ namespace AdressBookApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewEntry(AddEntry addEntry)
         {
-            var a = 1;
-
             var isNickExists = await NickExist(addEntry.Nick);
 
             if (!isNickExists)
@@ -88,7 +86,7 @@ namespace AdressBookApi.Controllers
             return entry;
         }
 
-        private async Task<Boolean> NickExist(string nick)
+        private async Task<Boolean> NickExist(string? nick)
         { 
             return await dataContext.Entries.AnyAsync(x => x.Nick == nick);
 
