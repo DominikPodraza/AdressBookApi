@@ -14,8 +14,4 @@
     <ProjectReference Include="..\AdressBook.Domain\AdressBook.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UseCases\Entry\Queries\" />
-  </ItemGroup>
-
 </Project>
