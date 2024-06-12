@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34916.146
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdressBookApi", "AdressBookApi.csproj", "{39A6CD6F-945B-4D37-8D6F-0B28AE0A26B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "./src/AdressBookApi", "./src/AdressBookApi\AdressBookApi.csproj", "{39A6CD6F-945B-4D37-8D6F-0B28AE0A26B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdressBookTests", "..\AdressBookTests\AdressBookTests.csproj", "{73087B1F-FC3F-4319-8E9F-FA6107925E8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "./src/AdressBookTests", "./src/AdressBookTests\AdressBookTests.csproj", "{73087B1F-FC3F-4319-8E9F-FA6107925E8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "./src/AdressBook.Infrastructure", "./src/AdressBook.Infrastructure\AdressBook.Infrastructure.csproj", "{606781CF-ACDB-41ED-82E1-388C780943AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "./src/AdressBook.Domain", "./src/AdressBook.Domain\AdressBook.Domain.csproj", "{A45F6269-5B14-47DD-A31D-F843C9B784F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "./src/AdressBook.Application", "./src/AdressBook.Application\AdressBook.Application.csproj", "{0A7AF377-C404-41CD-8488-EEC01740C04B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{73087B1F-FC3F-4319-8E9F-FA6107925E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73087B1F-FC3F-4319-8E9F-FA6107925E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73087B1F-FC3F-4319-8E9F-FA6107925E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{606781CF-ACDB-41ED-82E1-388C780943AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{606781CF-ACDB-41ED-82E1-388C780943AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{606781CF-ACDB-41ED-82E1-388C780943AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{606781CF-ACDB-41ED-82E1-388C780943AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A45F6269-5B14-47DD-A31D-F843C9B784F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A45F6269-5B14-47DD-A31D-F843C9B784F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A45F6269-5B14-47DD-A31D-F843C9B784F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A45F6269-5B14-47DD-A31D-F843C9B784F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A7AF377-C404-41CD-8488-EEC01740C04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7AF377-C404-41CD-8488-EEC01740C04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7AF377-C404-41CD-8488-EEC01740C04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7AF377-C404-41CD-8488-EEC01740C04B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

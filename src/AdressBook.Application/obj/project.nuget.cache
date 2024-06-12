@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "DtLPjY5SNJw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dominik.podraza\\source\\repos\\AdressBook\\src\\AdressBook.Application\\AdressBook.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dominik.podraza\\.nuget\\packages\\mediatr\\12.3.0\\mediatr.12.3.0.nupkg.sha512",
+    "C:\\Users\\dominik.podraza\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\dominik.podraza\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
