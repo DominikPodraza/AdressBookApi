@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace AdressBookApi.Migrations
+namespace AdressBook.Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration

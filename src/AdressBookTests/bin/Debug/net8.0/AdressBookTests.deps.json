@@ -54,6 +54,26 @@
         }
       },
       "coverlet.collector/6.0.0": {},
+      "MediatR/12.3.0": {
+        "dependencies": {
+          "MediatR.Contracts": "2.0.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/MediatR.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.3.0.0"
+          }
+        }
+      },
+      "MediatR.Contracts/2.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Contracts.dll": {
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -1523,10 +1543,36 @@
         }
       },
       "xunit.runner.visualstudio/2.5.3": {},
+      "AdressBook.Application/1.0.0": {
+        "dependencies": {
+          "AdressBook.Domain": "1.0.0",
+          "MediatR": "12.3.0"
+        },
+        "runtime": {
+          "AdressBook.Application.dll": {}
+        }
+      },
+      "AdressBook.Domain/1.0.0": {
+        "runtime": {
+          "AdressBook.Domain.dll": {}
+        }
+      },
+      "AdressBook.Infrastructure/1.0.0": {
+        "dependencies": {
+          "AdressBook.Application": "1.0.0",
+          "AdressBook.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "8.0.6",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.6"
+        },
+        "runtime": {
+          "AdressBook.Infrastructure.dll": {}
+        }
+      },
       "AdressBookApi/1.0.0": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.6",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.6",
+          "AdressBook.Application": "1.0.0",
+          "AdressBook.Infrastructure": "1.0.0",
+          "MediatR": "12.3.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "runtime": {
@@ -1561,6 +1607,20 @@
       "sha512": "sha512-tW3lsNS+dAEII6YGUX/VMoJjBS1QvsxqJeqLaJXub08y1FSjasFPtQ4UBUsudE9PNrzLjooClMsPtY2cZLdXpQ==",
       "path": "coverlet.collector/6.0.0",
       "hashPath": "coverlet.collector.6.0.0.nupkg.sha512"
+    },
+    "MediatR/12.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DuXRw/qux2n7pTRPond4WK9XImO+30TZrGPCeOmjYIXDWokpjZQDFRsdZMoP0WqWU7inC4m0D+Zbu5dSc4z6NQ==",
+      "path": "mediatr/12.3.0",
+      "hashPath": "mediatr.12.3.0.nupkg.sha512"
+    },
+    "MediatR.Contracts/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ==",
+      "path": "mediatr.contracts/2.0.1",
+      "hashPath": "mediatr.contracts.2.0.1.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -2548,6 +2608,21 @@
       "sha512": "sha512-HFFL6O+QLEOfs555SqHii48ovVa4CqGYanY+B32BjLpPptdE+wEJmCFNXlLHdEOD5LYeayb9EroaUpydGpcybg==",
       "path": "xunit.runner.visualstudio/2.5.3",
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
+    },
+    "AdressBook.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdressBook.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AdressBook.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "AdressBookApi/1.0.0": {
       "type": "project",

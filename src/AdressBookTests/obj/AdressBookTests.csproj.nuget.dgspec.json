@@ -263,10 +263,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Azure.Identity": {
-              "target": "Package",
-              "version": "[1.10.3, )"
-            },
             "MediatR": {
               "target": "Package",
               "version": "[12.3.0, )"

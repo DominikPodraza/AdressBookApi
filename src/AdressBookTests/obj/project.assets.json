@@ -2761,7 +2761,6 @@
         "dependencies": {
           "AdressBook.Application": "1.0.0",
           "AdressBook.Infrastructure": "1.0.0",
-          "Azure.Identity": "1.10.3",
           "MediatR": "12.3.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },

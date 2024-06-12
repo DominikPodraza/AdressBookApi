@@ -1,11 +1,8 @@
-﻿using AdressBookApi.Adapters;
-using AdressBookApi.Data;
-using AdressBookApi.Entities;
-using AdressBookApi.Models;
+﻿using AdressBook.Application.UseCases.Entry.Commands;
+using AdressBook.Application.UseCases.Entry.Commands.AddEntry;
 using AdressBookApi.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 namespace AdressBookApi.Controllers
 {
     [Route("api/adress-book")]
@@ -15,78 +12,37 @@ namespace AdressBookApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAdressBook()
         {
-            return Ok(await mediator.Send(new GetAllAdressesQuery()));
+            var querry = new GetAllAdressesQuery.Query();
+            return Ok(await mediator.Send(querry));
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEntry(int id)
-        {   
-            return Ok(await mediator.Send(new GetEntryQuery { Id = id }));
+        {
+            var querry = new GetEntryQuery.Query(id);
+            return Ok(await mediator.Send(querry));
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewEntry(AddEntry addEntry)
+        public async Task<IActionResult> AddNewEntry([FromBody] AddEntryUseCase.Command command)
         {
-            var query = new AddNewEntryQuery();
-            var result = await mediator.Send(query);
-            if (result.IsSuccess) {
-                return Ok();
-            }
-            return BadRequest(result.ErrorMessage);
+            await mediator.Send(command);
+            return Ok();
 
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEntry(int id)
         {
-            var entry = await GetEntry_(id);
-
-            if (entry == null) return NotFound("Nie znaleziono");
-
-            dataContext.Remove(entry);
-
-            return Ok(await dataContext.SaveChangesAsync());
+            var command = new DeleteEntryUseCase.Command(id);
+            await mediator.Send(command);
+            return Ok();
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Entry>>> UpdateEntry(UpdateEntry updateEntry)
+        public async Task<IActionResult> UpdateEntry([FromBody] UpdateEntryUseCase.Command command)
         {
-
-            var editedEntry = await GetEntry_(updateEntry.Id);
-
-
-            if (editedEntry == null) return NotFound("Nie znaleziono");
-
-            if (string.IsNullOrWhiteSpace(updateEntry.Nick))
-            {
-                return BadRequest("Login musi być pełny");
-            }
-            if (string.IsNullOrWhiteSpace(updateEntry.FirstName))
-            {
-                return BadRequest("Imię musi być pełny");
-            }
-            if (string.IsNullOrWhiteSpace(updateEntry.LastName))
-            {
-                return BadRequest("Nazwisko musi być pełny");
-            }
-            if (string.IsNullOrWhiteSpace(updateEntry.Telephone))
-            {
-                return BadRequest("Telefon musi być pełny");
-            }
-
-            var isNickExist = await NickExist(updateEntry.Nick);
-            if (isNickExist) return BadRequest("Taki login już istnieje");
-
-            editedEntry.Nick = updateEntry.Nick;
-            editedEntry.FirstName = updateEntry.FirstName;
-            editedEntry.LastName = updateEntry.LastName;
-            editedEntry.Email = updateEntry.Email;
-            editedEntry.Address = updateEntry.Address;
-            editedEntry.City = updateEntry.City;
-            editedEntry.PostalCode = updateEntry.PostalCode;
-            editedEntry.Telephone = updateEntry.Telephone;
-
-            await dataContext.SaveChangesAsync();
+            await mediator.Send(command);
             return Ok();
         }
 
