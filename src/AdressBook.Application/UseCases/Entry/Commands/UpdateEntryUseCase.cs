@@ -21,6 +21,7 @@ namespace AdressBook.Application.UseCases.Entry.Commands
         {
             public Task Handle(Command request, CancellationToken cancellationToken)
             {
+                // TODO: simka
                 throw new NotImplementedException();
             }
         }

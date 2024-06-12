@@ -1,5 +1,6 @@
 ﻿using AdressBook.Application.UseCases.Entry.Commands;
 using AdressBook.Application.UseCases.Entry.Commands.AddEntry;
+using AdressBook.Infrastructure.Middleware.Exceptions;
 using AdressBookApi.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace AdressBookApi.Controllers
     [ApiController]
     public class AdressBookControler(IMediator mediator) : ControllerBase
     {
+
         [HttpGet]
         public async Task<IActionResult> GetAdressBook()
         {

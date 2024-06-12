@@ -1,9 +1,11 @@
 ﻿using AdressBook.Application.Common.Interfaces;
-using AdressBook.Infrastructure.Persistance;
+using AdressBook.Infrastructure.Persistence;
 using AdressBook.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Middleware.Example;
 
 namespace AdressBook.Infrastructure
 {
@@ -16,8 +18,16 @@ namespace AdressBook.Infrastructure
             });
 
             services.AddScoped<IEntryRepository, EntryRepository>();
+            
 
             return services;
         }
+
+        public static IApplicationBuilder AddMiddleware(
+        this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<ExceptionMiddleware>();
+        }
+
     }
 }
