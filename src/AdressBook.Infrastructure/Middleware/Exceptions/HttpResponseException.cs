@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace AdressBook.Domain
+namespace AdressBook.Infrastructure.Middleware.Exceptions
 {
     public record ExceptionMessage(string Title, string Description);
 

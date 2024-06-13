@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace AdressBook.Domain.Exceptions
+namespace AdressBook.Infrastructure.Middleware.Exceptions
 {
     public class BadRequestException : HttpResponseException
     {

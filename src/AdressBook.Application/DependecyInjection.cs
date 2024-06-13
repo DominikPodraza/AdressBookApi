@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AdressBook.Application.Common;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Reflection;
 
 namespace AdressBook.Application
@@ -10,5 +13,12 @@ namespace AdressBook.Application
             services.AddMediatR(x => x.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             return services;
         }
+
+        public static IApplicationBuilder AddMiddleware(
+        this IApplicationBuilder builder)
+        {
+            return builder.UseMiddleware<ExceptionMiddleware>();
+        }
+
     }
 }
