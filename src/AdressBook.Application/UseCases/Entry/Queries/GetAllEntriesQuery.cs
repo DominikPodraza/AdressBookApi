@@ -4,7 +4,7 @@ using MediatR;
 
 namespace AdressBookApi.Queries
 {
-    public static class GetAllAdressesQuery
+    public static class GetAllEntriesQuery
     {
         public record Query() : IRequest<List<Entry>>;
         internal class Handler(IEntryRepository entryRepository) : IRequestHandler<Query, List<Entry>>
