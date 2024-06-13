@@ -9,5 +9,6 @@ namespace AdressBook.Application.Common.Interfaces
         Task AddNewEntryAsync(Entry entry);
         Task UpdateEntryAsync(Entry entry);
         Task DeleteEntryAsync(int id);
+        Task<Boolean> NickExist(string nick);
     }
 }
