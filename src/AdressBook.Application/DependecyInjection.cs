@@ -1,4 +1,5 @@
 ﻿using AdressBook.Application.Common;
+using AdressBook.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;

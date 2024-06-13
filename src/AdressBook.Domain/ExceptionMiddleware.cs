@@ -1,8 +1,8 @@
-﻿using AdressBook.Infrastructure.Middleware.Exceptions;
+﻿using AdressBook.Domain.Exceptions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace Middleware.Example;
+namespace AdressBook.Domain;
 
 public class ExceptionMiddleware (ILogger<ExceptionMiddleware> logger, RequestDelegate next)
 {
