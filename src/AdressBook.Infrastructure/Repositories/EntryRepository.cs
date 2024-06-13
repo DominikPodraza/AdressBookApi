@@ -1,4 +1,6 @@
 ﻿using AdressBook.Application.Common.Interfaces;
+using AdressBook.Application.UseCases.Entry.Commands.AddEntry.Dtos;
+using AdressBook.Application.UseCases.Entry.Queries;
 using AdressBook.Domain.Entities;
 using AdressBook.Domain.Exceptions;
 using AdressBook.Infrastructure.Persistence;
@@ -23,12 +25,12 @@ namespace AdressBook.Infrastructure.Repositories
 
         public async Task<List<Entry>> GetEntriesAsync()
         {
-            return await dataContext.Entries.ToListAsync();
+            return await dataContext.Entries.Include(x => x.NumberPhones).ToListAsync();
         }
 
         public async Task<Entry> GetEntryByIdAsync(int id)
         {
-            return await dataContext.Entries.SingleOrDefaultAsync(x => x.Id == id) ?? throw new NotFoundException("Entry", $"Nie znaleziono entry o id: {id}");
+            return await dataContext.Entries.Include(x => x.NumberPhones).SingleOrDefaultAsync(x => x.Id == id) ?? throw new NotFoundException("Entry", $"Nie znaleziono entry o id: {id}");
         }
 
         public async Task UpdateEntryAsync(Entry entry)
@@ -42,5 +44,6 @@ namespace AdressBook.Infrastructure.Repositories
             return await dataContext.Entries.AnyAsync(x => x.Nick == nick);
 
         }
+
     }
 }

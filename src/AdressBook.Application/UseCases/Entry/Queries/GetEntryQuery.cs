@@ -1,15 +1,20 @@
 ﻿using AdressBook.Application.Common.Interfaces;
-using AdressBook.Domain.Entities;
+using AdressBook.Application.UseCases.Entry.Commands.AddEntry;
+using AdressBook.Application.UseCases.Entry.Commands.AddEntry.Dtos;
 using MediatR;
 
-namespace AdressBookApi.Queries
+namespace AdressBook.Application.UseCases.Entry.Queries
 {
     public static class GetEntryQuery
     {
-        public record Query(int id) : IRequest<Entry>;
-        internal class Handler(IEntryRepository entryRepository) : IRequestHandler<Query, Entry>
+        public record Query(int id) : IRequest<EntryDto>;
+        internal class Handler(IEntryRepository entryRepository) : IRequestHandler<Query, EntryDto>
         {
-            public async Task<Entry> Handle(Query request, CancellationToken cancellationToken) => await entryRepository.GetEntryByIdAsync(request.id);
+            public async Task<EntryDto> Handle(Query request, CancellationToken cancellationToken)
+            {
+                var entry = await entryRepository.GetEntryByIdAsync(request.id);
+                return new EntryDtoAdapter(entry);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AdressBook.Domain.Entities;
+﻿using AdressBook.Application.UseCases.Entry.Commands.AddEntry.Dtos;
+using AdressBook.Domain.Entities;
 
 namespace AdressBook.Application.Common.Interfaces
 {

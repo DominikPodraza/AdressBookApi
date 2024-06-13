@@ -1,5 +1,5 @@
-﻿using AdressBook.Domain.Entities;
-using AdressBookApi.Queries;
+﻿using AdressBook.Application.UseCases.Entry.Queries;
+using AdressBook.Domain.Entities;
 
 namespace AdressBook.Tests
 {
