@@ -3,7 +3,7 @@
     public class EntryDto
 
     {
-        private string? _nick; 
+        public int Id { get; set; }
         public required string Nick { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }

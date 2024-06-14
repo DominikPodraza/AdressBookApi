@@ -14,8 +14,8 @@ public class ExceptionMiddleware (ILogger<ExceptionMiddleware> logger, RequestDe
         }
         catch (HttpResponseException ex)
         {
-
-            context.Response.StatusCode = (int) ex.StatusCode;
+            context.Response.StatusCode = (int)ex.StatusCode;
+            await context.Response.WriteAsync(ex.Value.Description);
             logger.LogError(ex.Value.Description);
         }
     }

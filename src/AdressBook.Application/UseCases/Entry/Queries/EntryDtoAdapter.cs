@@ -9,6 +9,7 @@ namespace AdressBook.Application.UseCases.Entry.Queries
         [SetsRequiredMembers]
         public EntryDtoAdapter(Domain.Entities.Entry entry)
         {
+            this.Id = entry.Id;
             this.FirstName = entry.FirstName;
             this.LastName = entry.LastName;
             this.Nick = entry.Nick;

@@ -3,7 +3,6 @@
     public class Entry
     {
         public int Id { get; set; }
-        private string? _nick; 
         public required string Nick { get; set; }
         public required string FirstName { get; set; }
         public required string LastName { get; set; }

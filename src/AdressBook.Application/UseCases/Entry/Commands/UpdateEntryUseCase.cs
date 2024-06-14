@@ -30,11 +30,14 @@ namespace AdressBook.Application.UseCases.Entry.Commands
                 if (string.IsNullOrWhiteSpace(request.FirstName)) throw new BadRequestException("FirstName", "Pole imienia musi być wypełnione");
                 if (string.IsNullOrWhiteSpace(request.LastName)) throw new BadRequestException("LastName", "Pole nazwiaska musi być wypełnione");
                 if (request.NumberPhones == null) throw new BadRequestException("Telephone", "Pole numeru telefonu musi być wypełnione");
-                var isPhoneNumbersExist = request.NumberPhones?.Any(x =>  string.IsNullOrWhiteSpace(x.Number));
+                var isPhoneNumbersExist = request.NumberPhones?.Any(x => string.IsNullOrWhiteSpace(x.Number));
                 if (isPhoneNumbersExist == null || isPhoneNumbersExist == true) throw new BadRequestException("Telephone", "Pole numeru telefonu musi być wypełnione");
 
-                var isNickExist = await entryRepository.NickExist(request.Nick);
-                if (isNickExist) throw new BadRequestException("Updated Entry", "Taki nick juz istnieje!");
+                if (request.Nick != editedEntry.Nick)
+                {
+                    var isNickExist = await entryRepository.NickExist(request.Nick);
+                    if (isNickExist) throw new BadRequestException("Updated Entry", "Taki nick juz istnieje!");
+                }
 
                 editedEntry.Nick = request.Nick;
                 editedEntry.FirstName = request.FirstName;

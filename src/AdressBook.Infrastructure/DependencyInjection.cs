@@ -1,6 +1,7 @@
 ﻿using AdressBook.Application.Common.Interfaces;
 using AdressBook.Infrastructure.Persistence;
 using AdressBook.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,7 @@ namespace AdressBook.Infrastructure
             {
                 options.UseSqlServer(configuration.GetConnectionString("AdressBookDB"));
             });
+
             services.RegistryInfrastructureServices();
             return services;
         }

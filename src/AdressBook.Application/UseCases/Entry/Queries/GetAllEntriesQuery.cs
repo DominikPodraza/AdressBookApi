@@ -13,6 +13,7 @@ namespace AdressBook.Application.UseCases.Entry.Queries
             {
                var allEntries = await entryRepository.GetEntriesAsync();
                 var allEntriesDto = allEntries.ConvertAll(x => new EntryDto { 
+                    Id = x.Id,
                     FirstName = x.FirstName, 
                     LastName = x.LastName,
                     Nick = x.Nick, 

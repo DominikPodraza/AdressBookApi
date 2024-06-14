@@ -1,9 +1,11 @@
 ﻿using AdressBook.Domain.Entities;
+using Microsoft.AspNetCore.DataProtection.Repositories;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AdressBook.Infrastructure.Persistence
 {
-    internal class DataContext : DbContext
+    internal class DataContext : IdentityDbContext
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Entry> Entries { get; set; } = null!;
@@ -15,6 +17,7 @@ namespace AdressBook.Infrastructure.Persistence
             modelBuilder.Entity<Entry>(x =>
             {
                 x.HasKey(k => k.Id);
+                x.HasIndex(x => x.Nick).IsUnique();
                 x.Property(p => p.Id).ValueGeneratedOnAdd();
                 x.HasMany(y => y.NumberPhones)
                     .WithOne(y => y.Entry)
